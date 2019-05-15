@@ -54,7 +54,7 @@ void connection::handle_read_client(const boost::system::error_code& e,
   if (!e){
     std::string client_data(buffer_.begin(), buffer_.end());
     parse_http_request(client_data);
-    if(addr.length > 0 && port.length > 0){
+    if(addr.length() > 0 && port.length() > 0){
       tcp::resolver::query query(addr, port);
       resolver_.async_resolve(query,
         boost::bind(&connection::handle_resolve, shared_from_this(),

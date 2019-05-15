@@ -15,7 +15,7 @@
 #include <boost/array.hpp>
 #include <boost/noncopyable.hpp>
 #include <boost/shared_ptr.hpp>
-#include "reply.hpp";
+#include <reply.hpp>
 #include <boost/enable_shared_from_this.hpp>
 #include <string>
 #include <vector>
@@ -47,7 +47,7 @@ private:
 
   /// Handle completion of a query resolve operation
   void handle_resolve(const boost::system::error_code& err,
-      tcp::resolver::iterator endpoint_iterator);
+      boost::asio::ip::tcp::resolver::iterator endpoint_iterator);
 
   /// Handle completion of a connect operation
   void handle_connect(const boost::system::error_code& e);
